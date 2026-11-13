@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Action Pengaturan SSO Sevima -->
+    <record id="action_sevima_sso_config_settings" model="ir.actions.act_window">
+        <field name="name">Pengaturan SSO Sevima</field>
+        <field name="res_model">res.config.settings</field>
+        <field name="view_mode">form</field>
+        <field name="target">current</field>
+        <field name="context">{'module': 'sirita_sso_sevima'}</field>
+    </record>
+
+    <!-- Menu Root Utama Aplikasi SSO Sevima di App Launcher -->
+    <menuitem id="menu_sevima_sso_root"
+              name="SSO Sevima"
+              web_icon="sirita_sso_sevima,static/description/icon.png"
+              groups="sirita_sso_sevima.group_sevima_sso_manager"
+              sequence="55"/>
+
+    <!-- Sub Menu: Pengaturan Layanan SSO -->
+    <menuitem id="menu_sevima_sso_settings"
+              name="Pengaturan Layanan"
+              parent="menu_sevima_sso_root"
+              action="action_sevima_sso_config_settings"
+              sequence="10"/>
+
+    <!-- Sub Menu: Audit Log Login SSO -->
+    <menuitem id="menu_sevima_sso_logs"
+              name="Audit Log Login"
+              parent="menu_sevima_sso_root"
+              action="action_sevima_sso_log"
+              sequence="20"/>
+
+    <!-- Shortcut di Menu Administration / Settings -->
+    <menuitem id="menu_sevima_sso_admin_shortcut"
+              name="SSO Sevima"
+              parent="base.menu_administration"
+              action="action_sevima_sso_config_settings"
+              groups="sirita_sso_sevima.group_sevima_sso_manager"
+              sequence="55"/>
+</odoo>

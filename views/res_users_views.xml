@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Form View Extension for res.users -->
+    <record id="view_users_form_inherit_sevima_sso" model="ir.ui.view">
+        <field name="name">res.users.form.inherit.sevima.sso</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Sevima SSO &amp; SIAKAD" name="page_sevima_sso">
+                    <group>
+                        <group string="Status Integrasi SSO">
+                            <field name="is_sevima_sso"/>
+                            <field name="sevima_user_id"/>
+                            <field name="sevima_nip"/>
+                            <field name="sevima_last_sync"/>
+                        </group>
+                        <group string="Profil &amp; Penugasan Sevima">
+                            <field name="sevima_role_name"/>
+                            <field name="sevima_role_code"/>
+                            <field name="sevima_id_pegawai"/>
+                            <field name="sevima_nama_satker"/>
+                            <field name="sevima_id_satker"/>
+                        </group>
+                    </group>
+                    <group string="Riwayat Percobaan Login SSO Pengguna">
+                        <field name="sevima_sso_log_ids" nolabel="1">
+                            <list string="Log SSO" limit="10" create="false" edit="false">
+                                <field name="login_date"/>
+                                <field name="status" widget="badge" decoration-success="status == 'success'" decoration-danger="status == 'failed'" decoration-warning="status == 'error'"/>
+                                <field name="ip_address"/>
+                                <field name="latency_ms"/>
+                                <field name="message"/>
+                            </list>
+                        </field>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Search View Extension for res.users -->
+    <record id="view_users_search_inherit_sevima_sso" model="ir.ui.view">
+        <field name="name">res.users.search.inherit.sevima.sso</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_search"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="sevima_nip"/>
+                <field name="sevima_user_id"/>
+                <field name="sevima_role_name"/>
+            </xpath>
+            <xpath expr="//filter[@name='Inactive']" position="after">
+                <separator/>
+                <filter string="Pengguna SSO Sevima" name="filter_sevima_sso" domain="[('is_sevima_sso', '=', True)]"/>
+                <filter string="Role Dosen (DSN)" name="filter_role_dosen" domain="[('sevima_role_code', '=', 'DSN')]"/>
+                <filter string="Role Tendik (TDK)" name="filter_role_tendik" domain="[('sevima_role_code', 'in', ['TDK', 'PEG'])]"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

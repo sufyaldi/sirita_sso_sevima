@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <!-- 1. Kategori Hak Akses SSO Sevima -->
+        <record id="module_category_sevima_sso" model="ir.module.category">
+            <field name="name">SIRITA SSO Sevima</field>
+            <field name="description">Manajemen Hak Akses Layanan SSO Sevima Platform</field>
+            <field name="sequence">50</field>
+        </record>
+
+        <!-- 2. Privilege Scope Odoo 20 -->
+        <record id="privilege_sevima_sso" model="res.groups.privilege">
+            <field name="name">SIRITA SSO Sevima Privilege</field>
+            <field name="category_id" ref="module_category_sevima_sso"/>
+        </record>
+
+        <!-- 3. Grup Administrator SSO Sevima -->
+        <record id="group_sevima_sso_manager" model="res.groups">
+            <field name="name">Administrator SSO Sevima</field>
+            <field name="privilege_id" ref="privilege_sevima_sso"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_erp_manager'))]"/>
+            <field name="user_ids" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+            <field name="comment">Pengelola penuh konfigurasi SSO Sevima dan pemantauan audit log autentikasi.</field>
+        </record>
+    </data>
+</odoo>

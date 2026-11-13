@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form_sevima_sso" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.sevima.sso</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="90"/>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form" position="inside">
+                <app data-string="SSO Sevima" string="SSO Sevima" name="sirita_sso_sevima">
+                    <block title="Pengaturan Single Sign-On (SSO) Sevima Platform" id="sevima_sso_main_block">
+                        <setting id="sevima_sso_activation" string="Status Layanan SSO" help="Aktifkan autentikasi pengguna dengan kredensial Sevima SIAKAD Cloud">
+                            <field name="sevima_sso_enabled"/>
+                        </setting>
+
+                        <setting id="sevima_sso_endpoints" string="Kredensial API Sevima" help="App Key dan Secret Key resmi dari Sevima Platform">
+                            <div class="content-group mt16">
+                                <div class="row mt8">
+                                    <label for="sevima_sso_base_url" class="col-lg-4 o_light_label" string="Base URL API"/>
+                                    <field name="sevima_sso_base_url" class="col-lg-8" placeholder="https://api.sevimaplatform.com"/>
+                                </div>
+                                <div class="row mt8">
+                                    <label for="sevima_sso_app_key" class="col-lg-4 o_light_label" string="App Key"/>
+                                    <field name="sevima_sso_app_key" class="col-lg-8" password="True" placeholder="Masukkan App Key Sevima (X-App-Key)"/>
+                                </div>
+                                <div class="row mt8">
+                                    <label for="sevima_sso_secret_key" class="col-lg-4 o_light_label" string="Secret Key"/>
+                                    <field name="sevima_sso_secret_key" class="col-lg-8" password="True" placeholder="Masukkan Secret Key Sevima (X-Secret-Key)"/>
+                                </div>
+                                <div class="row mt8">
+                                    <label for="sevima_sso_timeout" class="col-lg-4 o_light_label" string="Timeout (Detik)"/>
+                                    <field name="sevima_sso_timeout" class="col-lg-8"/>
+                                </div>
+                            </div>
+                        </setting>
+
+                        <setting id="sevima_sso_jit_provisioning" string="Just-In-Time (JIT) Provisioning" help="Atur kebijakan otomatisasi pembuatan akun saat login pertama kali">
+                            <field name="sevima_sso_auto_create_user"/>
+                            <div class="content-group mt16" invisible="not sevima_sso_auto_create_user">
+                                <div class="row mt8">
+                                    <label for="sevima_sso_default_user_type" class="col-lg-4 o_light_label" string="Tipe User Baru Default"/>
+                                    <field name="sevima_sso_default_user_type" class="col-lg-8"/>
+                                </div>
+                                <div class="text-muted mt8 small">
+                                    * Catatan: Pengguna dengan role Dosen (DSN) atau Tendik (TDK/PEG) akan otomatis dijadikan Pengguna Internal dan dikaitkan ke data master Pegawai (hr.employee) secara otomatis.
+                                </div>
+                            </div>
+                        </setting>
+
+                        <setting id="sevima_sso_testing" string="Uji Koneksi &amp; Autentikasi Langsung" help="Verifikasi koneksi API dan validitas akun Sevima secara nyata">
+                            <div class="content-group mt16">
+                                <div class="row mt8">
+                                    <label for="sevima_sso_test_email" class="col-lg-4 o_light_label" string="Email Akun Uji"/>
+                                    <field name="sevima_sso_test_email" class="col-lg-8" placeholder="contoh: dosen@iainpare.ac.id"/>
+                                </div>
+                                <div class="row mt8">
+                                    <label for="sevima_sso_test_password" class="col-lg-4 o_light_label" string="Password Akun Uji"/>
+                                    <field name="sevima_sso_test_password" class="col-lg-8" password="True" placeholder="Password akun SIAKAD"/>
+                                </div>
+                                <div class="mt16 d-flex gap-2">
+                                    <button name="action_test_sevima_sso_connection" string="⚡ Uji Login Akun Sevima" type="object" class="btn btn-primary"/>
+                                    <button name="action_view_sso_logs" string="📋 Buka Log Audit SSO" type="object" class="btn btn-secondary"/>
+                                </div>
+                            </div>
+                        </setting>
+                    </block>
+                </app>
+            </xpath>
+        </field>
+    </record>
+</odoo>

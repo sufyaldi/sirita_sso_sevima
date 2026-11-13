@@ -1,0 +1,3 @@
+id,name,model_id,group_id/id,operation,domain
+access_sevima_sso_log_manager,sevima.sso.log.manager,sevima.sso.log,sirita_sso_sevima.group_sevima_sso_manager,crud,
+access_sevima_sso_log_internal,sevima.sso.log.internal,sevima.sso.log,base.group_user,crud,

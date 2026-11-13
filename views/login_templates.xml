@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="login_inherit_sevima_sso" inherit_id="web.login" name="Sevima SSO Login &amp; Company Branding">
+        <!-- Kotak info SSO -->
+        <xpath expr="//div[hasclass('field-login')]" position="before">
+            <t t-if="sevima_sso_enabled">
+                <div class="alert alert-info py-2 px-3 mb-3 d-flex align-items-center" role="alert" style="font-size: 0.85rem; border-radius: 8px; background-color: #f0f7ff; border: 1px solid #cce5ff; color: #004085;">
+                    <i class="fa fa-graduation-cap me-2 flex-shrink-0" style="font-size: 1.15rem; color: #0056b3;"/>
+                    <div>
+                        Login menggunakan SSO <b>Sisfokampus</b> atau <b>Edlink</b>
+                    </div>
+                </div>
+            </t>
+        </xpath>
+
+        <!-- Placeholder email yang rapi -->
+        <xpath expr="//input[@id='login']" position="attributes">
+            <attribute name="placeholder">Email resmi (@iainpare.ac.id) atau NIP</attribute>
+            <attribute name="style">border-radius: 6px;</attribute>
+        </xpath>
+
+        <!-- Input password yang selaras -->
+        <xpath expr="//input[@id='password']" position="attributes">
+            <attribute name="placeholder">Kata Sandi Anda</attribute>
+            <attribute name="style">border-radius: 6px 0 0 6px;</attribute>
+        </xpath>
+
+        <!-- Tombol login yang modern -->
+        <xpath expr="//div[hasclass('oe_login_buttons')]//button[@type='submit'][not(@name)]" position="attributes">
+            <attribute name="style">border-radius: 6px; padding: 0.55rem; font-weight: 600;</attribute>
+        </xpath>
+    </template>
+</odoo>

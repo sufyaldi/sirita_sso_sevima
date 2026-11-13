@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="param_sevima_sso_enabled" model="ir.config_parameter">
+        <field name="key">sirita_sso_sevima.enabled</field>
+        <field name="value">True</field>
+    </record>
+
+    <record id="param_sevima_sso_base_url" model="ir.config_parameter">
+        <field name="key">sirita_sso_sevima.base_url</field>
+        <field name="value">https://api.sevimaplatform.com</field>
+    </record>
+
+    <record id="param_sevima_sso_auto_create" model="ir.config_parameter">
+        <field name="key">sirita_sso_sevima.auto_create_user</field>
+        <field name="value">True</field>
+    </record>
+
+    <record id="param_sevima_sso_default_user_type" model="ir.config_parameter">
+        <field name="key">sirita_sso_sevima.default_user_type</field>
+        <field name="value">internal</field>
+    </record>
+
+    <record id="param_sevima_sso_timeout" model="ir.config_parameter">
+        <field name="key">sirita_sso_sevima.timeout</field>
+        <field name="value">10</field>
+    </record>
+</odoo>
