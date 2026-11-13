@@ -1,7 +1,42 @@
+# Byte-compiled / optimized / DLL files
 __pycache__/
-*.pyc
-*.pyo
-*.pyd
-.DS_Store
+*.py[cod]
+*$py.class
+
+# Temporary & backup files
 *.swp
 *.swo
+*~
+*.bak
+*.tmp
+temp/
+tmp/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE & Editor settings
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Environment & local credentials
+.env
+.env.*
+*.local
+
+# LaTeX auxiliary build files (jika dikompilasi di docs/)
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+*.fls
+*.fdb_latexmk
