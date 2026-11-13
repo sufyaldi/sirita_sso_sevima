@@ -33,11 +33,5 @@ Thumbs.db
 *.local
 api_sevima.md
 
-# LaTeX auxiliary build files (jika dikompilasi di docs/)
-*.aux
-*.log
-*.out
-*.toc
-*.synctex.gz
-*.fls
-*.fdb_latexmk
+# Documentation & internal manuals
+docs/
