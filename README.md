@@ -38,14 +38,11 @@ sirita_sso_sevima/
 ├── __init__.py
 ├── __manifest__.py
 ├── README.md
-├── api_sevima.md
 ├── controllers/
 │   ├── __init__.py
 │   └── main.py
 ├── data/
 │   └── ir_config_parameter_data.xml
-├── docs/
-│   └── RENCANA_IMPLEMENTASI_SSO_SEVIMA.md
 ├── models/
 │   ├── __init__.py
 │   ├── hr_employee.py
@@ -56,6 +53,12 @@ sirita_sso_sevima/
 ├── security/
 │   ├── ir.access.csv
 │   └── security.xml
+├── static/
+│   ├── description/
+│   │   └── icon.png
+│   └── src/
+│       └── img/
+│           └── logo_iain.png
 └── views/
     ├── login_templates.xml
     ├── menus.xml
