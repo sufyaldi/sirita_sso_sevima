@@ -1,6 +1,6 @@
 # SIRITA SSO Sevima Platform (Odoo 20)
 
-Addon resmi integrasi Single Sign-On (SSO) dan *Just-In-Time (JIT) User Provisioning* terhubung dengan API Sevima Platform (SIAKAD Cloud) untuk IAIN Parepare.
+Addon resmi integrasi Single Sign-On (SSO) dan *Just-In-Time (JIT) User Provisioning* terhubung dengan API Sevima Platform (SIAKAD Cloud).
 
 ---
 
