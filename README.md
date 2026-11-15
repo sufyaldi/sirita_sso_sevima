@@ -84,8 +84,3 @@ sirita_sso_sevima/
    - Simpan pengaturan.
 
 ---
-
-## 📄 Dokumen Arsitektur Lengkap
-
-Silakan baca dokumen arsitektur komprehensif di:  
-[`docs/RENCANA_IMPLEMENTASI_SSO_SEVIMA.md`](file:///home/iain/app-my/addons/sirita_sso_sevima/docs/RENCANA_IMPLEMENTASI_SSO_SEVIMA.md)
